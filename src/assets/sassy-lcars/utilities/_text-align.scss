@@ -1,0 +1,9 @@
+$text-align: ( left, right, center );
+
+@each $alias in $text-align {
+  @include make-utility((
+      alias: 'ta-' + $alias,
+      class: true,
+      text-align: $alias
+  ));
+}

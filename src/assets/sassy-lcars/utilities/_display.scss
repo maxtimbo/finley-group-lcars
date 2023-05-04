@@ -1,0 +1,26 @@
+$aliases: (
+  'flex',
+  'inline-flex',
+  'inline',
+  'inline-block',
+  'grid',
+  'inline-grid',
+  'block',
+  'none',
+  'contents'
+);
+
+@each $alias in $aliases {
+  $value: str-replace($alias, 'd-');
+  @include make-utility((
+    alias: 'd-' + $alias,
+    class: true,
+    display: unquote($value)
+  ));
+}
+
+@include make-utility((
+  alias: border-box,
+  class: true,
+  box-sizing: border-box
+));

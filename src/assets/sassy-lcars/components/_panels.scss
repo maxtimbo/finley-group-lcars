@@ -1,0 +1,152 @@
+
+// panel-fills: call-size (e.g. .panel-fill-sm) 
+// attribute defines responsive units
+// sm, md, lg, xl, xxl
+//
+
+$panel-fills: (
+  sm: (
+    padding-top: ( 15px, 15px, 15px, 15px, 15px ),
+  ),
+  md: (
+    padding-top: ( 30px, 30px, 45px, 50px, 50px ),
+  ),
+  lg: (
+    padding-top: ( 50px, 50px, 65px, 80px, 80px ),
+  ),
+  xl: (
+    padding-top: ( 100px, 100px, 150px, 200px, 200px ),
+  ),
+  xxl: (
+    padding-top: ( 200px, 200px, 250px, 350px, 350px )
+  )
+) !default;
+
+$transparent: rgba(0, 0, 0, 0);
+$panel-inner-properties: (
+  bottom-left: (
+    background: linear-gradient(to top right, $transparent 50%, $base-bg 50%),
+    left: 0,
+    bottom: 0,
+  ),
+  top-left: (
+    background: linear-gradient(to bottom right, $transparent 50%, $base-bg 50%),
+    left: 0,
+    top: 0,
+  ),
+  top-right: (
+    background: linear-gradient(to bottom left, $transparent 50%, $base-bg 50%),
+    right: 0,
+    top: 0,
+  ),
+  bottom-right: (
+    background: linear-gradient(to top left, $transparent 50%, $base-bg 50%),
+    right: 0,
+    bottom: 0,
+  ),
+);
+
+$panel-radius: (
+  25%, 35%, 85%, 95%, 95%
+);
+
+$panel-cqh: map-to-breakpoints(( 34cqh, 34cqh, 34cqh, 32cqh, 50cqh ));
+
+
+@each $side, $attrs in $panel-inner-properties {
+  $panel-radius-map: map-to-breakpoints($panel-radius);
+  .panel-inner-#{$side} {
+    @include make-panel-inner;
+    &:before {
+      @include inner-before-after;
+      @each $attr, $val in $attrs {
+        #{$attr}: #{$val};
+      }
+    }
+    &:after {
+      @include inner-before-after;
+      background-color: $base-bg;
+      border-#{$side}-radius: 25%;
+      @each $attr, $val in $attrs {
+        @if $attr != "background" {
+          #{$attr}: #{$val};
+        }
+      }
+    }
+    @each $breakpoint, $_ in $breakpoints {
+     @include breakpoint($breakpoint) {
+       &:after {
+        border-#{$side}-radius: map-get($panel-radius-map, $breakpoint);
+      }
+     }
+   }
+  }
+}
+ 
+@each $size, $attrs in $panel-fills {
+  // get attribute maps
+  $padding-tops: map-to-breakpoints(map-get($attrs, padding-top));
+  .panel-fill-#{$size} {
+    @include make-panel-fills($padding-top: map-get($padding-tops, sm));
+
+    @each $breakpoint, $width in $breakpoints {
+      @include breakpoint($breakpoint) {
+        padding-top: map-get($padding-tops, $breakpoint);
+      }
+    }
+  }
+  button.panel-fill-#{$size} {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    @include hover-active;
+  }
+  @each $side, $radius-attrs in $panel-inner-properties {
+    .panel-outer-#{$side}-#{$size} {
+      padding-top: 15px;
+      @if (str-index($side, 'bottom')) {
+        @include make-panel-fills($border-bottom: none, $padding-bottom: map-get($padding-tops, sm));
+        @each $breakpoint, $_ in $breakpoints {
+          @include breakpoint($breakpoint) {
+            padding-bottom: map-get($padding-tops, $breakpoint);
+          }
+        }
+      } @else {
+        @include make-panel-fills($padding-top: map-get($padding-tops, sm));
+        @each $breakpoint, $_ in $breakpoints {
+          @include breakpoint($breakpoint) {
+            padding-top: map-get($padding-tops, $breakpoint);
+          }
+        }
+      }
+      border-#{$side}-radius: 58cqw;
+      @container (max-width: 100px) {
+        border-#{$side}-radius: 36cqw;
+      }
+    }
+    .panel-outer-#{$side}-flex-height {
+      padding-top: 15px;
+      @if (str-include($side, 'bottom')) {
+        @include make-panel-fills($border-bottom: none, $padding-bottom: 30cqh);
+        @each $breakpoint, $_ in $breakpoints {
+          @include breakpoint($breakpoint) {
+            padding-bottom: map-get($panel-cqh, $breakpoint);
+          }
+        }
+      } @else {
+        @include make-panel-fills($padding-top: 30cqh);
+        @each $breakpoint, $_ in $breakpoints {
+          @include breakpoint($breakpoint) {
+            padding-bottom: map-get($panel-cqh, $breakpoint);
+          }
+        }
+      }
+      border-#{$side}-radius: 58cqw;
+      @container (max-width: 100px) {
+        border-#{$side}-radius: 36cqw;
+      }
+    }
+  }
+}
+
+

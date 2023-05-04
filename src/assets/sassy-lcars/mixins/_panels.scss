@@ -1,0 +1,29 @@
+@mixin make-panel-fills($border-bottom: $base-border-bottom, 
+                        $padding-top: 15px,
+                        $padding-bottom: 15px) {
+  display: block;
+  text-align: right;
+  border-bottom: $border-bottom;
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  padding-right: 10px;
+  font-size: .8rem;
+}
+
+@mixin inner-before-after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: -1;
+}
+
+@mixin make-panel-inner {
+  display: flex;
+  flex-basis: 100%;
+  position: relative;
+  //align-self: start;
+  //position: relative;
+  //width: 100%;
+}

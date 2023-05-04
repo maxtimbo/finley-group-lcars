@@ -1,0 +1,14 @@
+// Generate background, ::before background, and font colors
+
+@mixin color-classes($name, $color) {
+  $color-name: str-replace($name, 'lcars-');
+
+  .bg-#{$color-name},
+  .oc-#{$color-name}::before {
+    background-color: $color !important;
+  }
+
+  .text-#{$color-name} {
+    color: $color;
+  }
+}

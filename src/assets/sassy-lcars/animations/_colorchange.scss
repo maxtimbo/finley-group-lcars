@@ -1,0 +1,25 @@
+// data cascade colorchange animation
+
+@keyframes colorchange {
+  0% {
+    color: $lcars-orange;
+  }
+  25% {
+    color: $lcars-orange;
+  }
+  50% {
+    color: $lcars-orange;
+  }
+  75% {
+    color: $lcars-orange;
+  }
+  80% {
+    color: black;
+  }
+  90% {
+    color: black;
+  }
+  100% {
+    color: $lcars-space-white;
+  }
+}

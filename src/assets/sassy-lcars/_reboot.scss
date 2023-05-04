@@ -1,0 +1,80 @@
+:root {
+  font-size: 24px;
+  line-height: 36px;
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Antonio';
+  font-weight: 400;
+  src: url('./fonts/Antonio-Regular.woff2') format('woff2'),
+       url('./fonts/Antonio-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Antonio';
+  font-weight: 700;
+  src: url('./fonts/Antonio-Bold.woff2') format('woff2'),
+       url('./fonts/Antonio-Bold.woff') format('woff');
+}
+
+body {
+  background-color: $base-bg;
+  font-family: 'Antonio', 'Arial Narrow', 'Avenir Next Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-weight: normal;
+}
+
+hr {
+  margin-left: 0;
+  margin-right: 0;
+  height: 6px;
+  width: 100%;
+  border: 3px solid var(--primary);
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+a {
+  @include link-format;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}

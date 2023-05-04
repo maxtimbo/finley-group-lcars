@@ -1,0 +1,75 @@
+.container,
+.container-fluid {
+  width: 100%;
+  @include breakpoint(md) {
+    padding: 0 5%;
+  }
+}
+
+.container-fluid {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+}
+
+.h100vh {
+  height: 100vh;
+}
+
+$page-head-resp: map-to-breakpoints((
+  .8rem, 1rem, 1rem, 1rem, 1.8rem
+));
+
+.page-head {
+  display: flex;
+  justify-content: end;
+  font-size: .8rem;
+  text-align: right;
+  text-transform: uppercase;
+  @each $breakpoint, $_ in $breakpoints {
+    @include breakpoint($breakpoint) {
+      font-size: map-get($page-head-resp, $breakpoint);
+    }
+  }
+}
+
+
+
+.content {
+  overflow: scroll;
+  height: 85vh;
+}
+
+
+$panel-breakpoints: (
+  sm: 50px,
+  md: 100px,
+  lg: 150px,
+  xl: 200px,
+  xxl: 200px,
+) !default;
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  color: $base-bg;
+  overflow: hidden;
+  width: 50px;
+  min-width: 50px;
+  container-type: inline-size;
+  @each $breakpoint, $width in $breakpoints {
+    @include breakpoint($breakpoint) {
+      width: map-get($panel-breakpoints, $breakpoint);
+      min-width: map-get($panel-breakpoints, $breakpoint);
+    }
+  }
+}

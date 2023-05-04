@@ -1,0 +1,34 @@
+$hbar-border: 4px solid $base-bg;
+
+@mixin hbar($height) {
+  display: flex;
+  border-radius: $height * 0.45;
+  width: 100%;
+  min-height: $height;
+  justify-content: center;
+  div {
+    display: flex;
+    min-height: $height;
+    width: 90%;
+    border-left: $hbar-border;
+    border-right: $hbar-border;
+    align-content: center;
+    @include breakpoint(md) {
+      width: 95%;
+    }
+    span {
+      font-size: $height;
+      background-color: $base-bg;
+      margin-top: 0;
+    }
+  }
+}
+
+
+.container-hbar {
+  @include hbar(20px);
+}
+
+.container-hbar-text {
+  @include hbar(40px);
+}

@@ -1,0 +1,11 @@
+@import 'utilities/margin';
+@import 'utilities/padding';
+@import 'utilities/display';
+@import 'utilities/text-align';
+@import 'utilities/overflow';
+@import 'utilities/justify-content';
+
+// Generate background, ::before background, and font colors
+@each $name, $color in $colors {
+  @include color-classes($name, $color);
+}

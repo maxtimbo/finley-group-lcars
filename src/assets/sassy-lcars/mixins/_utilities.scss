@@ -1,0 +1,111 @@
+@mixin clearFix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin button-clear {
+  border-style: none;
+}
+
+@mixin link-format {
+  text-decoration: none;
+  color: $base-bg;
+}
+
+@mixin hover-active {
+  &:hover {
+    filter: brightness(115%);
+  }
+  &:active {
+    filter: brightness(80%);
+  }
+}
+
+@mixin hover-none {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+@mixin hover-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin make-class-from-placeholder($utility-name, $properties, $make-breakpoints: true) {
+  // For no breakpoint
+  .#{$utility-name} {
+    @extend %#{$utility-name};
+  }
+
+  @if $make-breakpoints {
+    @each $breakpoint, $_ in $breakpoints {
+      @include breakpoint($breakpoint, max) {
+        .#{$utility-name}-#{$breakpoint} {
+          @each $property, $value in $properties {
+            #{$property}: $value !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin make-placeholder($utility-name, $properties) {
+  // For no breakpoint
+  %#{$utility-name} {
+    @each $property, $value in $properties {
+      #{$property}: $value;
+    }
+  }
+
+  // For every breakpoint
+  @each $breakpoint-key, $breakpoint-value in $breakpoints {
+    %#{$utility-name + $breakpoint-key} {
+      @include breakpoint($breakpoint-key) {
+        @each $property, $value in $properties {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}
+
+@mixin make-utility($args) {
+  $class: map-use(
+    $args,
+    class,
+    false
+  );
+
+  $args: map-remove($args, class);
+
+  // If 'alias' key exists in $args, use that for the placeholder-name,
+  // otherwise use the key and value of the first property in $args
+  $utility-name: map-use(
+    $args,
+    alias,
+    first(map-keys($args)) + first(map-values($args))
+  );
+
+  //$utility-name: 'u-' + $utility-name;
+
+  $properties: map-remove($args, alias);
+
+  // Debug output to list off all the placeholders being made:
+  //  @if ($class) {
+  //    @debug('Making placeholder & class: ' + $utility-name);
+  //  } else {
+  //    @debug('Making placeholder: ' + $utility-name);
+  //  }
+
+  @include make-placeholder($utility-name, $properties);
+
+  @if ($class or $global-everything-as-class) {
+    @include make-class-from-placeholder($utility-name, $properties);
+  }
+}

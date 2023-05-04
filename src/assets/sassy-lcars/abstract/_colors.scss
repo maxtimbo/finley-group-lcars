@@ -1,0 +1,193 @@
+
+// Default Theme
+
+$primary:     #c8f;
+$secondary:   #f70;
+$accent1:     #ffc899;
+$accent2:     #d44;
+$accent3:     #78f;
+$accent4:     #fa9;
+
+$colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "accent1":    $accent1,
+  "accent2":    $accent2,
+  "accent3":    $accent3,
+  "accent4":    $accent4,
+);
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+) !default;
+
+$lcars-moonshine:       #def;
+$lcars-moonbeam:        #ccdeff;
+$lcars-sky:             #aaf;
+$lcars-bluey:           #78f;
+$lcars-blue:            #45f;
+$lcars-evening:         #25f;
+$lcars-midnight:        #11e;
+$lcars-ghost:           #8bf;
+$lcars-ice:             #8cf;
+$lcars-c48:             #6cf;
+$lcars-c43:             #58e;
+$lcars-cool:            #58f;
+$lcars-c49:             #9cf;
+$lcars-c47:             #79d;
+$lcars-c44:             #8ff;
+$lcars-c46:             #455580;
+$lcars-galaxy:          #444a77;
+$lcars-c45:             #344470;
+
+$lcars-space-white:     #f5f6fa;
+$lcars-violet-creme:    #dbf;
+$lcars-magenta:         #c49;
+$lcars-lilac:           #c3f;
+$lcars-green:           #3c9;
+$lcars-yellow:          #fc3;
+$lcars-sunflower:       #fc6;
+$lcars-violet:          #94f;
+$lcars-orange:          #f70;
+$lcars-almond-creme:    #fba;
+$lcars-almond:          #ffaa90;
+$lcars-gray:            #666;
+$lcars-gold:            #fa0;
+$lcars-mars:            #f20;
+$lcars-red:             #d44;
+$lcars-cardinal:        #c23;
+$lcars-tomato:          #f55;
+$lcars-peach:           #f86;
+$lcars-c50:             #ff3500;
+$lcars-october-sunset:  #f40;
+$lcars-c68:             #f00;
+$lcars-c69:             #c00;
+$lcars-c70:             #e00;
+$lcars-dark-maroon:     #600;
+
+$lcars-butterscotch:    #f96;
+$lcars-wheat:           #ca8;
+$lcars-roseblush:       #c66;
+$lcars-honey:           #fc6;
+$lcars-pumpkinshade:    #f74;
+$lcars-c56:             #f80;
+$lcars-tangerine:       #f83;
+$lcars-harvestgold:     #fa4;
+
+$lcars-martian:         #9b6;
+$lcars-butter:          #fec;
+$lcars-c57:             #d0b0a0;
+$lcars-c58:             #bbf;
+$lcars-c59:             #9a6;
+$lcars-c60:             #0b0;
+$lcars-c61:             #3f3;
+$lcars-c62:             #dfd;
+$lcars-c63:             #ffebde;
+$lcars-c65:             #f6eef6;
+$lcars-c71:             #dfdfdf;
+$lcars-c72:             #f7f7f7;
+$lcars-c73:             #c7f;
+$lcars-c66:             #a6a;
+$lcars-c67:             #d8d;
+$lcars-c64:             #c9c;
+$lcars-african-violet:  #c8f;
+$lcars-c51:             #525;
+$lcars-c52:             #636;
+$lcars-c53:             #747;
+$lcars-c54:             #858;
+$lcars-c55:             #969;
+
+//  $colors: (
+//    'lcars-space-white': $lcars-space-white,
+//    'lcars-violet-creme': $lcars-violet-creme,
+//    'lcars-magenta': $lcars-magenta,
+//    'lcars-green': $lcars-green,
+//    'lcars-blue': $lcars-blue,
+//    'lcars-yellow': $lcars-yellow,
+//    'lcars-sunflower': $lcars-sunflower,
+//    'lcars-violet': $lcars-violet,
+//    'lcars-orange': $lcars-orange,
+//    'lcars-african-violet': $lcars-african-violet,
+//    'lcars-red': $lcars-red,
+//    'lcars-almond': $lcars-almond,
+//    'lcars-almond-creme': $lcars-almond-creme,
+//    'lcars-bluey': $lcars-bluey,
+//    'lcars-gray': $lcars-gray,
+//    'lcars-sky': $lcars-sky,
+//    'lcars-ice': $lcars-ice,
+//    'lcars-gold': $lcars-gold,
+//    'lcars-mars': $lcars-mars,
+//    'lcars-peach': $lcars-peach,
+//    'lcars-butterscotch': $lcars-butterscotch,
+//    'lcars-tomato': $lcars-tomato,
+//    'lcars-lilac': $lcars-lilac,
+//    'lcars-evening': $lcars-evening,
+//    'lcars-midnight': $lcars-midnight,
+//    'lcars-ghost': $lcars-ghost,
+//    'lcars-wheat': $lcars-wheat,
+//    'lcars-roseblush': $lcars-roseblush,
+//    'lcars-honey': $lcars-honey,
+//    'lcars-cardinal': $lcars-cardinal,
+//    'lcars-pumpkinshade': $lcars-pumpkinshade,
+//    'lcars-tangerine': $lcars-tangerine,
+//    'lcars-martian': $lcars-martian,
+//    'lcars-moonbeam': $lcars-moonbeam,
+//    'lcars-cool': $lcars-cool,
+//    'lcars-galaxy': $lcars-galaxy,
+//    'lcars-moonshine': $lcars-moonshine,
+//    'lcars-october-sunset': $lcars-october-sunset,
+//    'lcars-harvestgold': $lcars-harvestgold,
+//    'lcars-butter': $lcars-butter,
+//    'lcars-dark-maroon': $lcars-dark-maroon,
+//    'lcars-c43': $lcars-c44,
+//    'lcars-c44': $lcars-c44,
+//    'lcars-c45': $lcars-c45,
+//    'lcars-c46': $lcars-c46,
+//    'lcars-c47': $lcars-c47,
+//    'lcars-c48': $lcars-c48,
+//    'lcars-c49': $lcars-c49,
+//    'lcars-c50': $lcars-c50,
+//    'lcars-c51': $lcars-c51,
+//    'lcars-c52': $lcars-c52,
+//    'lcars-c53': $lcars-c53,
+//    'lcars-c54': $lcars-c54,
+//    'lcars-c55': $lcars-c55,
+//    'lcars-c56': $lcars-c56,
+//    'lcars-c57': $lcars-c57,
+//    'lcars-c58': $lcars-c58,
+//    'lcars-c59': $lcars-c59,
+//    'lcars-c60': $lcars-c60,
+//    'lcars-c61': $lcars-c61,
+//    'lcars-c62': $lcars-c62,
+//    'lcars-c63': $lcars-c63,
+//    'lcars-c64': $lcars-c64,
+//    'lcars-c65': $lcars-c65,
+//    'lcars-c66': $lcars-c66,
+//    'lcars-c67': $lcars-c67,
+//    'lcars-c68': $lcars-c68,
+//    'lcars-c69': $lcars-c69,
+//    'lcars-c70': $lcars-c70,
+//    'lcars-c71': $lcars-c71,
+//    'lcars-c72': $lcars-c72,
+//    'lcars-c73': $lcars-c73
+//  );

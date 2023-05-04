@@ -1,0 +1,58 @@
+
+$btn-properties: (
+    width: map-to-breakpoints(( 46%, 100px, 140px, 177px, 210px )),
+    padding-top: map-to-breakpoints(( 10px, 10px, 30px, 30px, 30px))
+);
+
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 660px;
+  flex-basis: 100%;
+  justify-content: end;
+  @include breakpoint(md) {
+    flex-basis: 60%;
+  }
+  a,
+  button,
+  li.btn {
+    @include button-clear;
+    @include hover-active;
+    display: block;
+    width: 46%;
+    margin: 5px;
+    padding-top: 10px;
+    padding-right: 25px;
+    border-radius: 100vmax;
+    text-align: right;
+    line-height: normal !important;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: bold;
+    @each $breakpoint, $_ in $breakpoints {
+      @include breakpoint($breakpoint) {
+        @each $property, $list in $btn-properties {
+          #{$property}: map-get($list, $breakpoint);
+        }
+      }
+    }
+    @include hover-hover {
+      & .btn-hidden-text {
+        display: none;
+      }
+      &:hover .btn-display-text {
+        display: none;
+      }
+      &:hover .btn-hidden-text {
+        display: inline;
+      }
+    }
+    @include hover-none {
+      & .btn-display-text {
+        display: none;
+      }
+    }
+  }
+}
+
