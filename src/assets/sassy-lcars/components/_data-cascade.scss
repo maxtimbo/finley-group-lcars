@@ -28,6 +28,7 @@
   }
 }
 
+/* purgecss start ignore */
 @for $i from 1 through 8 {
   .row-#{$i} {
     $delay: $i * .1; 
@@ -62,3 +63,4 @@
   }
 }
 
+/* purgecss end ignore */
