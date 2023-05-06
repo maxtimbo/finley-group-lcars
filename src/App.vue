@@ -125,7 +125,6 @@ const commsBool = ref(false)
 
 function commsToggle() {
   const bodyContainer = document.getElementById("body-container")
-  console.log(bodyContainer.clientHeight)
 
   if (!commsBool.value) {
     if (sounds.hail1.playing() === false) {

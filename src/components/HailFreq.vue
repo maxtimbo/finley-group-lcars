@@ -1,8 +1,11 @@
 <template>
   <div class="container hailing py-4 py-16-md" @click="$emit('comms')">
-    <SectionHR>Communication</SectionHR>
-    Test
-    <SectionHR :textAlign="'justify-start'">TEST</SectionHR>
+    <SectionHR>COMMUNICATION</SectionHR>
+    <h1 class="ta-center pb-2">Incomming Transmission</h1>
+    <a href="mailto:tim.finley24@gmail.com" class="comms pb-6">
+      <img src="/svgs/comms.min.svg" alt="">
+    </a>
+    <SectionHR :textAlign="'justify-start'">TIM FINLEY</SectionHR>
   </div>
 </template>
 
@@ -14,16 +17,4 @@ defineEmits(['comms'])
 </script>
 
 <style>
-.hailing {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 1000;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: black;
-}
 </style>

@@ -1,0 +1,25 @@
+
+.hailing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  max-height: 90vh;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+}
+.comms{
+  max-width: 30%;
+  margin: 0 auto;
+  animation: blink .8s 3;
+  @include breakpoint(md) {
+    max-width: 50%;
+  }
+}
+
