@@ -45,7 +45,7 @@
     <div class="panel-container">
       <div class="panel-outer-top-left-lg bg-accent2 pfiller" @click="scrollToTop">Test</div>
       <div id="sidebar" class="panel-container o-scroll">
-        <button class="panel-fill-lg bg-accent2 pfiller">BLOG</button>
+        <button class="panel-fill-lg bg-accent2 pfiller" @click="randomComputerBeep">BLOG</button>
         <button class="panel-fill-sm bg-secondary pfiller">TECH</button>
         <button class="panel-fill-sm bg-accent1 swap-text pfiller">CLOUD</button>
         <button class="panel-fill-md bg-primary swap-text pfiller">COMM</button>
@@ -87,7 +87,7 @@ import { DataCascade, ContentFooter, HomeNav, HailFreq } from '@/components'
 import moment from 'moment'
 import { RouterView } from 'vue-router'
 import { SassyLcars } from './assets/sassy-lcars/sassy-lcars.js'
-import { sounds } from './util/sounds'
+import { sounds, randomComputerBeep } from './util/sounds'
 
 const useSassyLcars = new SassyLcars()
 const todayDate = moment().format('YYMM.DD')
@@ -95,11 +95,8 @@ const todayDate = moment().format('YYMM.DD')
 let isSyncLeftScroll = false
 let isSyncRightScroll = false
 
-
 function scrollToTop() {
-  if (sounds.beep34.playing() === false) {
-    sounds.beep34.play()
-  }
+  randomComputerBeep()
   scroll({
     top: 0,
     behavior: "smooth"
@@ -107,9 +104,7 @@ function scrollToTop() {
 }
 
 function scrollToContent() {
-  if (sounds.beep10.playing() === false) {
-    sounds.beep10.play()
-  }
+  randomComputerBeep()
   const contentMarker = document.getElementById('content-border').getBoundingClientRect()
   scroll({
     top: contentMarker.top + window.scrollY,
@@ -118,9 +113,7 @@ function scrollToContent() {
 }
 
 function scrollContentToTop() {
-  if (sounds.beep34.playing() === false) {
-    sounds.beep34.play()
-  }
+  randomComputerBeep()
   const content = document.getElementById("content")
   content.scroll({
     top: 0,

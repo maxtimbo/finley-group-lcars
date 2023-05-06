@@ -1,6 +1,6 @@
 <template>
   <nav class="btn-group me-2">
-    <button class="btn bg-accent3">
+    <button class="btn bg-accent3" @click="randomComputerBeep">
       <span class="btn-hidden-text">
         home
       </span>
@@ -8,13 +8,13 @@
         AT-9592
       </span>
     </button>
-    <a href="https://fgtech.finley-group.com" target="blank" class="btn bg-accent4">
+    <a href="https://fgtech.finley-group.com" target="blank" class="btn bg-accent4" @click="randomComputerBeep">
       <span class="btn-hidden-text">
         tech
       </span>
       <span class="btn-display-text">TC-4928</span>
     </a>
-    <a href="https://blog.finley-group.com" target="blank" class="btn bg-secondary">
+    <a href="https://blog.finley-group.com" target="blank" class="btn bg-secondary" @click="randomComputerBeep">
       <span class="btn-hidden-text">
         blog
       </span>
@@ -30,5 +30,6 @@
 </template>
 
 <script setup>
+import { randomComputerBeep } from '../util/sounds.js'
 defineEmits(['comms'])
 </script>

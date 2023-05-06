@@ -2,7 +2,35 @@ import howler from 'howler'
 
 export const sounds = {}
 
+const computerBeeps = []
+
+const excludeList = [43, 56, 53, 15, 40, 63, 61, 57, 65, 59, 67]
+
+function checkExclude() {
+  const exc = Math.floor(Math.random() * computerBeeps.length) + 1
+  if (excludeList.includes(exc + 1)) {
+    return checkExclude()
+  } else if (exc + 1 > 77) {
+    return checkExclude()
+  } else {
+    return exc
+  }
+}
+
+export function randomComputerBeep() {
+  const soundFile = computerBeeps[checkExclude()]
+  sounds[soundFile].play()
+}
+
 export function initSounds() {
+  for (let i = 1; i < 78; i++) {
+    const computerBeep = 'computerbeep_' + i
+    computerBeeps.push(computerBeep)
+    sounds[computerBeep] = new howler.Howl({
+      src: ['/sounds/' + computerBeep + '.mp3'],
+      volume: 1
+    })
+  }
   sounds.denyBeep1 = new howler.Howl({
     src: ['/sounds/denybeep1.mp3'],
     volume: 0.2
