@@ -15,11 +15,11 @@
   background-color: black;
 }
 .comms{
-  max-width: 30%;
+  max-width: 90%;
   margin: 0 auto;
   animation: blink .8s 3;
   @include breakpoint(md) {
-    max-width: 50%;
+    max-width: 30%;
   }
 }
 
