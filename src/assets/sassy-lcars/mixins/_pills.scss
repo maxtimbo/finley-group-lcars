@@ -1,0 +1,30 @@
+$gap: 8px;
+
+@mixin pillbox {
+  display: grid;
+  grid-gap: $gap;
+  font-size: .8rem;
+  text-align: right;
+}
+
+@mixin pill($radius, $flex: false) {
+  display: inline-flex;
+  justify-content: end;
+  align-items: end;
+  width: 100%;
+  color: $base-bg;
+  font-weight: bold;
+  border-radius: $radius;
+  @if not $flex {
+    padding: 18px 15px 8px 0;
+  }
+  a {
+    @include link-format;
+  }
+  @include hover-active;
+  @at-root a#{&} { @include link-format; }
+  @at-root button#{&} {
+    @include button-clear;
+    text-align: right;
+  }
+}

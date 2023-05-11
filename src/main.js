@@ -6,6 +6,7 @@ import router from './router'
 import './assets/sassy-lcars/sassy-lcars.scss'
 import { initSounds } from './util/sounds'
 
+
 initSounds()
 
 const app = createApp(App)

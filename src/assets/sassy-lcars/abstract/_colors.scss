@@ -1,6 +1,7 @@
 
 // Default Theme
 
+$base-bg:     black;
 $primary:     #c8f;
 $secondary:   #f70;
 $accent1:     #ffc899;
@@ -9,6 +10,7 @@ $accent3:     #78f;
 $accent4:     #fa9;
 
 $colors: (
+  "base-bg":    $base-bg,
   "primary":    $primary,
   "secondary":  $secondary,
   "accent1":    $accent1,

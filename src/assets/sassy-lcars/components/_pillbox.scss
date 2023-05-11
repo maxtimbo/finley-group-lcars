@@ -1,0 +1,37 @@
+$pill-styles: (
+  start: 100vmax 0 0 100vmax,
+  center: 0,
+  both: 100vmax,
+  end: 0 100vmax 100vmax 0,
+) !default;
+
+$pill-columns: (
+  2: 1fr 1fr,
+  3: 1fr 1fr 1fr,
+  4: 1fr 1fr 1fr 1fr,
+) !default;
+
+@each $col, $value in $pill-columns {
+  .pillbox-#{$col} {
+    @include pillbox;
+    grid-template-columns: $value;
+    &.pillbox-100h {
+      height: 100%;
+    }
+  }
+}
+
+@each $side, $radius in $pill-styles {
+  .pill-#{$side} {
+    @include pill($radius);
+  }
+
+  .pill-#{$side}-flex {
+    @include pill($radius, true);
+    &:after {
+      content: '';
+      display: block;
+      padding-right: 20%;
+    }
+  }
+}
