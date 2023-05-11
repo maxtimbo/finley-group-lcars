@@ -17,8 +17,7 @@
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6",
-    "wavesurfer.js": "^6.6.3"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
