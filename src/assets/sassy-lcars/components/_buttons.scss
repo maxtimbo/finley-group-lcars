@@ -9,10 +9,10 @@ $btn-properties: (
   display: flex;
   flex-wrap: wrap;
   max-width: 660px;
-  flex-basis: 100%;
+  flex-basis: 90%;
   justify-content: end;
   @include breakpoint(md) {
-    flex-basis: 60%;
+    flex-basis: 100%;
   }
   a,
   button,

@@ -1,12 +1,15 @@
 .cascade-wrapper {
   container-name: dc-container;
   container-type: inline-size;
-  display: flex;
+  display: none;
   align-items: end;
-  flex-basis: 60%;
-  @include breakpoint(md, max) {
-    display: none;
+  @include breakpoint(md) {
+    display: flex;
+    flex-basis: 60%;
   }
+  //@include breakpoint(lg) {
+  //  flex-basis: 80%;
+  //}
   //padding-right: 15px;
 }
 
@@ -48,7 +51,8 @@
   }
 }
 
-@for $i from 5 through 20 {
+// hide columns
+@for $i from 2 through 20 {
   $dc-width: $i * 43;
   @container dc-container (width < #{$dc-width}px) {
     .dc#{$i} {

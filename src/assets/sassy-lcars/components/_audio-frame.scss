@@ -3,13 +3,14 @@ $cell-width: 8px;
 .audio-frame-container {
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 0;
+  left: 0;
   .audio-frame {
+    @include sticky-container;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    left: 0;
     min-width: 300px;
     .start-frame, .end-frame {
       width: 20px;
@@ -84,4 +85,15 @@ $cell-width: 8px;
       border-top: 5px solid $base-bg;
     }
   }
+  .volume-control {
+    @include volume-slider;
+    &::-webkit-slider-thumb { @include volume-thumb; }
+    &::-moz-range-thumb { @include volume-thumb; }
+  }
+  .wave-peak {
+    @include volume-slider;
+    &::-webkit-slider-thumb { @include volume-thumb; transform: rotate(180deg); }
+    &::-moz-range-thumb { @include volume-thumb;  transform: rotate(180deg); }
+  }
+
 }

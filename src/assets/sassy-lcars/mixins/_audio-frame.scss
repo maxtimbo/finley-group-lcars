@@ -1,0 +1,26 @@
+@mixin volume-slider() {
+  //-webkit-appearance: none;
+  //writing-mode: bt-lr;
+  //-webkit-appearance: slider-vertical;
+  height: 200px;
+  width: 15px;
+  background-color: $base-bg;
+  display: block;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+@mixin volume-thumb() {
+  border: none;
+  border-radius: 0;
+  background: url( '/svgs/volumeThumb.min.svg' );
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+@mixin sticky-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
