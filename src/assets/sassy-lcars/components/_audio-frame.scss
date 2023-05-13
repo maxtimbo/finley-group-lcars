@@ -1,5 +1,6 @@
 $cell-width: 8px;
 
+/* purgecss start ignore */
 .audio-frame-container {
   display: flex;
   flex-direction: column;
@@ -97,3 +98,5 @@ $cell-width: 8px;
   }
 
 }
+
+/* purgecss end ignore */
