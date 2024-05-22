@@ -8,7 +8,7 @@ $btn-properties: (
 .btn-group {
   display: flex;
   flex-wrap: wrap;
-  max-width: 660px;
+  max-width: 659px;
   flex-basis: 90%;
   justify-content: end;
   @include breakpoint(md) {
