@@ -2,11 +2,6 @@
   <div class="container-fluid">
     <div class="panel-container">
       <div class="panel-fill-md bg-primary" @click="enterFullscreen">
-        <img 
-          src="./assets/images/FGLogo_600x600.png" 
-          alt="fg-logo" 
-          class="d-none d-inline-md" 
-          style="max-width: 20px">
           <span class="d-none-md">finley-group</span>
         </div>
         <div class="panel-outer-bottom-left-xl bg-accent3 pfiller" @click="scrollToContent">test</div>

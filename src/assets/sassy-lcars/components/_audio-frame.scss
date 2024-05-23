@@ -10,6 +10,7 @@ $cell-width: 8px;
   .audio-frame {
     @include sticky-container;
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: space-between;
     min-width: 300px;

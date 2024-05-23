@@ -42,13 +42,13 @@ $page-head-resp: map-to-breakpoints((
   }
 }
 
-
-
 .content {
   overflow: scroll;
   height: 85vh;
+  a {
+    color: $secondary;
+  }
 }
-
 
 $panel-breakpoints: (
   sm: 50px,

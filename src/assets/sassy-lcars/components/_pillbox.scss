@@ -21,6 +21,12 @@ $pill-columns: (
   }
 }
 
+.pillbox-column {
+  @include pillbox;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+}
+
 @each $side, $radius in $pill-styles {
   .pill-#{$side} {
     @include pill($radius);

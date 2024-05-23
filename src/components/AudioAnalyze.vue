@@ -1,5 +1,5 @@
 <template>
-  <div class="audio-stream-container">
+  <div class="audio-stream-container ms-5">
     <div class="audio-frame-container">
       <div class="audio-frame">
         <input 
@@ -50,10 +50,12 @@
           <button class="pill-center bg-accent4" @click="playPause">{{ playPauseText }}</button>
           <button class="pill-end bg-accent3" @click="nextStream">Next</button>
         </div>
-        <div class="pillbox">
-          <button class="pill-both bg-primary" v-for="(stream, call) in streams" :key="call" @click="playStream(stream)">
+        <div class="pillbox-column mt-2">
+          <div v-for="(stream, call) in streams" :key="call" 
+               @click="playStream(stream)"
+               :class="['pill-both', { 'bg-primary': currentStream === stream, 'bg-accent4': currentStream !== stream }]">
             {{ call }}
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -82,6 +84,7 @@ const streams = {
 
 const streamKeys = Object.keys(streams)
 const currentStreamIndex = ref(0)
+const currentStream = ref(null)
 const isPlaying = ref(false)
 
 const AudioContext = window.AudioContext || window.webkitAudioContext
@@ -134,6 +137,7 @@ audioElement.addEventListener('play', () => {
 function playStream(stream) {
   console.log(stream)
   isPlaying.value = true
+  currentStream.value = stream
   audioElement.src = stream
   audioElement.crossOrigin = 'anonymous'
 
