@@ -46,22 +46,22 @@
       </div>
       <div class="controls">
         <div class="pillbox-3 mt-5">
-          <button class="pill-start bg-primary">Prev</button>
-          <button class="pill-center bg-accent4" @click="playPause">Play</button>
-          <button class="pill-end bg-accent3">Next</button>
+          <button class="pill-start bg-primary" @click="prevStream">Prev</button>
+          <button class="pill-center bg-accent4" @click="playPause">{{ playPauseText }}</button>
+          <button class="pill-end bg-accent3" @click="nextStream">Next</button>
         </div>
-        <ul>
-          <li v-for="stream, call in streams" :key="call.id" @click="playStream(stream)">
+        <div class="pillbox">
+          <button class="pill-both bg-primary" v-for="(stream, call) in streams" :key="call" @click="playStream(stream)">
             {{ call }}
-          </li>
-        </ul>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
 let VolumeControl
 let WavePeak
@@ -79,6 +79,10 @@ const streams = {
   WUBB: 'https://dbc.streamguys1.com/wubb-fm.aac',
   WRWN: 'https://dbc.streamguys1.com/wrwn-fm.aac'
 }
+
+const streamKeys = Object.keys(streams)
+const currentStreamIndex = ref(0)
+const isPlaying = ref(false)
 
 const AudioContext = window.AudioContext || window.webkitAudioContext
 const audioContext = new AudioContext()
@@ -98,13 +102,38 @@ function playPause() {
   console.log(audioElement.paused)
   if (!audioElement.paused) {
     audioElement.pause()
+    isPlaying.value = false
   } else {
     audioElement.play()
+    isPlaying.value = true
   }
 }
 
+function nextStream() {
+  currentStreamIndex.value = (currentStreamIndex.value + 1) % streamKeys.length
+  playStream(streams[streamKeys[currentStreamIndex.value]])
+}
+
+function prevStream() {
+  currentStreamIndex.value = (currentStreamIndex.value - 1 + streamKeys.length) % streamKeys.length
+  playStream(streams[streamKeys[currentStreamIndex.value]])
+}
+
+const playPauseText = computed(() => {
+  return isPlaying.value ? 'Pause' : 'Play'
+})
+
+audioElement.addEventListener('pause', () => {
+  isPlaying.value = false
+})
+
+audioElement.addEventListener('play', () => {
+  isPlaying.value = true
+})
+
 function playStream(stream) {
   console.log(stream)
+  isPlaying.value = true
   audioElement.src = stream
   audioElement.crossOrigin = 'anonymous'
 
