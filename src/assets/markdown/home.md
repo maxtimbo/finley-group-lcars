@@ -10,15 +10,14 @@ This webpage was a practice in VueJS as well as SCSS. Everything here was develo
 In addition to coding, I am also an FAA Part 107 Licensed Pilot and have done several drone missions around both radio broadcast towers and private homes for real estate agents. For inquiries regarding drone missions, please send me an [email](mailto:tim.finley24@gmail.com). Some samples of my work are below.
 
 <SectionHR>Drone Images</SectionHR>
-![Bluffton Tower1](../images/Top3.webp)
 
-![Bluffton Tower2](../images/bluffton2.webp)
-
-![Studio](../images/studioTop.webp)
-
-![WOAH](../images/woahTop.webp)
-
-![Savannah Arts Academy](../images/SavannahArtSchool.webp)
+<ImageGallery :images="[
+    { thumbnail: 'src/assets/images/thumb_Top3.webp', full: 'src/assets/images/Top3.webp' },
+    { thumbnail: 'src/assets/images/thumb_bluffton2.webp', full: 'src/assets/images/bluffton2.webp' },
+    { thumbnail: 'src/assets/images/thumb_studioTop.webp', full: 'src/assets/images/studioTop.webp' },
+    { thumbnail: 'src/assets/images/thumb_woahTop.webp', full: 'src/assets/images/woahTop.webp' },
+    { thumbnail: 'src/assets/images/thumb_SavannahArtSchool.webp', full: 'src/assets/images/SavannahArtSchool.webp' },
+]" />
 
 <SectionHR :textAlign="'justify-center'">My Projects</SectionHR>
 ### CLI based Audio Player
@@ -27,6 +26,9 @@ I'm currently working on an audio player in Rust that handles playlists from rad
 <lhr />
 ### Invoice-CLI
 In my most recent "not completed but abondonded" project, I wrote a command line program that allows a user to create invoices. The project is written in Rust and uses SQLite.
+
+**~Update~**  
+I have actually completed this and it works quite well. If you're interested, you can see the project [on my github](https://github.com/maxtimbo/invoice-cli).
 
 <lhr />
 ### Radio-Automation Python
@@ -39,5 +41,5 @@ RadAutoPy uses my riff-header Python package to manipulate wav headers to allow 
 <lhr />
 
 <script setup>
-import { lhr, SectionHR } from '@/elements';
+import { lhr, SectionHR, ImageGallery } from '@/elements';
 </script>
