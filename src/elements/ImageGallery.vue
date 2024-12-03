@@ -19,8 +19,9 @@
       :imgs="images.map(img => img.full)"
       :index="currentIndex"
       loop="true"
-      swipeTolerance=25
-      rotateDisabled="true"
+      swipe-tolerance="25"
+      rotate-disabled="true"
+      move-disabled="true"
       @hide="visible = false"
     />
   </div>
