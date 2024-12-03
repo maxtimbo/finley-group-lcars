@@ -18,6 +18,9 @@
       :visible="visible"
       :imgs="images.map(img => img.full)"
       :index="currentIndex"
+      loop="true"
+      swipeTolerance=25
+      rotateDisabled="true"
       @hide="visible = false"
     />
   </div>
