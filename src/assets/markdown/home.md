@@ -12,11 +12,11 @@ In addition to coding, I am also an FAA Part 107 Licensed Pilot and have done se
 <SectionHR>Drone Images</SectionHR>
 
 <ImageGallery :images="[
-    { thumbnail: 'src/assets/images/thumb_Top3.webp', full: 'src/assets/images/Top3.webp' },
-    { thumbnail: 'src/assets/images/thumb_bluffton2.webp', full: 'src/assets/images/bluffton2.webp' },
-    { thumbnail: 'src/assets/images/thumb_studioTop.webp', full: 'src/assets/images/studioTop.webp' },
-    { thumbnail: 'src/assets/images/thumb_woahTop.webp', full: 'src/assets/images/woahTop.webp' },
-    { thumbnail: 'src/assets/images/thumb_SavannahArtSchool.webp', full: 'src/assets/images/SavannahArtSchool.webp' },
+    { thumbnail: '/images/thumb_Top3.webp', full: '/images/Top3.webp' },
+    { thumbnail: '/images/thumb_bluffton2.webp', full: '/images/bluffton2.webp' },
+    { thumbnail: '/images/thumb_studioTop.webp', full: '/images/studioTop.webp' },
+    { thumbnail: '/images/thumb_woahTop.webp', full: '/images/woahTop.webp' },
+    { thumbnail: '/images/thumb_SavannahArtSchool.webp', full: '/images/SavannahArtSchool.webp' },
 ]" />
 
 <SectionHR :textAlign="'justify-center'">My Projects</SectionHR>
