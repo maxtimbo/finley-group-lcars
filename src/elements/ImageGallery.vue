@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
-    <div class="d-flex my-2">
+    <div class="d-flex f-wrap my-2">
       <div 
         v-for="(image, index) in images"
         :key="index"
-        class="thumbnail-border mx-1"
+        class="thumbnail mx-1"
       >
         <img
           :src="image.thumbnail"
